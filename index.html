@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>タイマー</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 10px;
+      text-align: center;
+    }
+    #display {
+      font-size: 32px;
+      margin: 15px 0;
+    }
+    input, button {
+      margin: 4px;
+      font-size: 16px;
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+  <label>分: <input id="min" type="number" value="1"></label>
+  <label>秒: <input id="sec" type="number" value="0"></label>
+  <div id="display">00:00</div>
+  <button id="start">▶</button>
+  <button id="stop">⏸</button>
+  <button id="reset">⭮</button>
+  <script src="renderer.js"></script>
+</body>
+</html>
