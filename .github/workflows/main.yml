@@ -1,0 +1,27 @@
+name: Build Electron Timer for Windows
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Package app
+        run: npx electron-packager . countdown-timer --platform=win32 --arch=x64 --out=dist --overwrite
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: countdown-timer-win
+          path: dist/countdown-timer-win32-x64
